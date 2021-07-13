@@ -1,0 +1,39 @@
+<section class="header">
+    <div class="header-content">
+        <div class="text-title">
+            <h1>TO DO LIST (LISTA DE TAREFAS)</h1>
+        </div>
+    </div>
+    <div>
+        <div class="flex flex-wrap gap-default">
+            <form id="form">
+                <input type="text" id="inputItem" name="item" [(ngModel)]="newItem" placeholder="Adicione uma tarefa"/>
+                <button id="addItem" class="button" (click)="addToDo()" >Adicionar Item</button>
+            </form>
+        </div>
+    </div>
+    <div id="tasks">
+        <div class="flex gap-default flex-wrap justify-space-between">
+            <div class="card text-center">
+                <h3 class="text-subtitle text-cards primary">TO DO (TAREFAS A SEREM REALIZADAS)</h3>
+                <ul id="itemsListDone">
+                    <div class="flex gap-default flex-wrap justify-space-between " *ngFor="let itemDo of doList; let i = index">
+                        <input type="checkbox" class="checkButton" (click)="doItem(i)" value="">
+                        <label>{{itemDo}}</label>
+                        <button class="deleteButton" (click)="delete($event)">Deletar</button>
+                    </div>
+                </ul>
+            </div>
+    
+            <div class="card text-center">
+                <h3 class="text-subtitle text-cards primary">DONE (TAREFAS COMPLETAS)</h3>
+                <ul id="itemsListDone">
+                    <div class="flex gap-default flex-wrap justify-space-between " *ngFor="let itemDone of doneList; let i = index">
+                        <input type="checkbox" class="checkButton" (click)="doneItem($event)" value="">
+                        <label>{{itemDone}}</label>
+                    </div>
+                </ul>
+            </div>
+        </div>        
+    </div>
+</section>
